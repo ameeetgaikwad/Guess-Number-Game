@@ -1,5 +1,5 @@
 const userInput = document.querySelector(".inputNumber");
-const submit = document.querySelector(".submit");
+const check = document.querySelector(".submit");
 const result = document.querySelector(".loseOrWin");
 const lowHigh = document.querySelector(".lowHigh");
 const remainingGuess = document.querySelector(".remainingGuess");
@@ -8,17 +8,19 @@ let randomNumber = Math.floor(Math.random() * 20 + 1);
 let gameOn = true;
 let turn = 5;
 
-submit.addEventListener("click", function (e) {
+check.addEventListener("click", checkButton);
+
+function checkButton(e) {
   e.preventDefault();
   if (turn == 0) {
     gameOn = false;
     lowHigh.innerHTML = `GAME OVER! CORRECT GUESS WAS ${randomNumber}`;
-    alert("Game over! Start new game.");
+    document.querySelector("body").style.backgroundColor = "#CD104D";
   }
   if (gameOn) {
     validateGuess(userInput.value);
   }
-});
+}
 
 function validateGuess(guess) {
   if (guess == 0) {
@@ -34,7 +36,7 @@ function validateGuess(guess) {
 
 function checkGuess(guess) {
   if (randomNumber == userInput.value) {
-    lowHigh.innerHTML = "Congratulations! You Won";
+    lowHigh.innerHTML = "Congratulations🎉! You Won";
     document.querySelector("body").style.backgroundColor = "#937DC2";
   } else if (randomNumber < userInput.value) {
     lowHigh.innerHTML = "Too High!";
@@ -47,6 +49,12 @@ function checkGuess(guess) {
   }
 }
 
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    checkButton(e);
+  }
+});
+
 newGame.addEventListener("click", function (e) {
   e.preventDefault();
   gameOn = true;
@@ -55,4 +63,5 @@ newGame.addEventListener("click", function (e) {
   remainingGuess.innerHTML = 5;
   userInput.value = "";
   randomNumber = Math.floor(Math.random() * 20 + 1);
+  document.querySelector("body").style.backgroundColor = "#7895b2";
 });

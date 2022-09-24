@@ -8,6 +8,8 @@ body {
   flex-direction: column;
 }
 .inputNumber {
+  display: block;
+  margin: auto;
   outline: none;
   border-top-style: hidden;
   border-right-style: hidden;
@@ -16,8 +18,9 @@ body {
   border-radius: 0.5rem;
   font-size: 1.5rem;
   font-family: "Poppins", sans-serif;
-  height: 4rem;
-  width: 30%;
+  height: 6rem;
+  width: 80%;
+  max-width: 510px;
 }
 .button {
   border-top-style: hidden;
@@ -25,8 +28,9 @@ body {
   border-left-style: hidden;
   border-bottom-style: hidden;
   padding: 0.5em;
-  margin: 1em 0;
-  width: 15%;
+  margin: 1em 0.3em;
+  width: 16%;
+  max-width: 255px;
   background-color: white;
   color: black;
   font-family: "Poppins", sans-serif;
@@ -35,5 +39,24 @@ body {
 }
 
 .info {
-  margin-bottom: 3em;
+  margin-bottom: 5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.none {
+  display: none;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
