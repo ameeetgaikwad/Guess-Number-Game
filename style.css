@@ -29,7 +29,7 @@ body {
   border-bottom-style: hidden;
   padding: 0.5em;
   margin: 1em 0.3em;
-  width: 16%;
+  width: 40%;
   max-width: 255px;
   background-color: white;
   color: black;
@@ -43,6 +43,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .none {
@@ -59,4 +60,26 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* Media queries */
+@media screen and (max-width: 600px) {
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  .button {
+    width: 70%;
+    max-width: 1000px;
+  }
+  .inputNumber {
+    width: 80%;
+  }
+  .info {
+    padding-left: 0.7em;
+  }
+  .remainingGuess,
+  .lowHigh {
+    font-size: small;
+  }
 }
